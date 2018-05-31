@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CarDealershipInClass.Models.Car>
+
+@{
+    ViewBag.Title = "Car List";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Make)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mileage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Used)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Make)<br />
+            @item.Make
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)<br />
+            @item.Model
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)<br />
+            @item.Year
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mileage)<br />
+            @item.Mileage
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Used)<br />
+            @item.Used
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new {@class="btn btn-primary"}) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+}
+
+</table>
